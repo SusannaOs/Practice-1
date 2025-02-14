@@ -1,0 +1,291 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    /*var(--highlight-color)*/
+    --highlight-color: rgb(155, 202, 43);
+}
+html{
+    /*background-image: linear-gradient(rgba(136, 134, 0, 0.5), rgba(136, 134, 0, 0.5)), url(https://wallpapercave.com/wp/zFvDTUx.jpg);
+    background-position: center;
+    background-size: cover;*/
+}
+
+/* Burger Menu*/
+
+.bar1,
+.bar2,
+.bar3{
+    transition: 0.5s;
+}
+.burger div{
+    display: absolute;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: white;
+    display: block;
+    height: 5px;
+    width: 40px;
+    margin: 9px
+}
+
+.change .bar1{
+    transform: rotate(-45deg) translate(-10px, 6px) ;
+}
+.change .bar2{
+    opacity: 0;
+}
+.change .bar3{
+    transform: rotate(45deg) translate(-14px, -10px) ;
+}
+
+/* ^ burger stuff ^ */
+
+.header {
+    position:fixed;
+    width: 100%;
+    height: 64px;
+    top: 0;
+    z-index: 1;
+}
+nav{
+    height: 100%;
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 1s;
+}
+nav .logo a{
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size:  36px;
+    padding-left: 10px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+}
+nav .logo img{
+    width: 60px;
+    margin-right: 10px;
+}
+nav ul li{
+    list-style: none;
+    margin: 10px 20px;
+    padding-left: 10px;   
+}
+nav ul li a{
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+nav ul li a:hover{
+    color: var(--highlight-color);
+}
+nav:hover{
+    background-color: rgb(0, 0, 0, 0.8);
+    box-shadow: 0px 0px 10px #333;
+}
+#nav-links{
+    transition: 0.5s;
+}
+/*Image Slider*/
+
+body, #slider, .wrap, .slide-content{
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    z-index: 0;
+}
+.wrap{
+    position: relative;
+}
+
+.slide{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.slide1{background-image: url(https://wallpaperaccess.com/full/537074.jpg);}
+.slide2{background-image: url(https://wallpapercave.com/wp/mxgrnMc.jpg);}
+.slide3{background-image: url(https://www.wallpaperkiss.com/wimg/b/123-1233105_big.jpg);}
+
+.slide-content{
+    background-color: rgb(0, 0, 0, 0.3);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+.slide-content h1{
+    font-size: 5rem;
+}
+
+.slide-content p{
+    padding-top: 20px;
+    padding-bottom: 60px;
+    font-size: 2rem;
+    opacity: 0;
+}
+.links{
+    cursor: pointer;
+    border-radius: 30px;
+    border: 2px solid white;
+    padding: 12px 35px;
+    opacity: 0;
+    transition: background 0.5s;
+}
+.links:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.Btn{
+    font-size: 20px;
+    font-weight: 600;
+}
+.links a{
+    color: white;
+    text-decoration: none;
+}
+.arrow{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    color: rgb(255, 255, 255);
+    font-size: 60px;   
+    margin-top: -35px;
+    font-weight: 900;
+    padding: 10px;
+}
+#arrow-left{
+    left: 0;
+    margin-left: 30px;
+    transition: background 0.5s;
+}
+#arrow-right{
+    right: 0;
+    margin-right: 30px;
+    transition: background 0.5s;
+}
+#arrow-right:hover{
+    border-radius: 0px 5px 5px 0px;
+    background-color: rgb(0, 0, 0, 0.8);
+}
+#arrow-left:hover{
+    border-radius: 5px 0px 0px 5px;
+    background-color: rgb(0, 0, 0, 0.8);
+}
+.slide-left{
+    animation: slideleft 1s linear forwards;
+}
+.slide-right{
+    animation: slideright 1s linear forwards;
+}
+@keyframes slideleft{
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideright{
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+p.slide-right{
+    animation-delay: 0.5s;
+}
+.links.slide-left{
+    animation-delay: 1s;
+}
+@media screen and (max-width:420px) {
+    .wrap{
+        overflow-y: hidden;
+    }
+    #arrow-left{
+        margin: 6px 6px;
+        padding: 0px 10px;
+    }
+    #arrow-right{
+        margin: 6px 6px;
+        padding: 0px 10px;
+    }
+    #arrow-right:hover{
+        background-color: rgba(0, 0, 0, 0);
+    }
+    #arrow-left:hover{
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@media screen and (max-width:720px) {
+    .arrow{
+        top: 83%;
+    }
+}
+@media screen and (max-width:850px) {
+    nav ul li:hover{
+        width: 90%;
+        background-color: rgba(63, 63, 63, 0.95);
+    }
+    nav{
+        background-color: rgb(0, 0, 0);
+        box-shadow: 0px 0px 10px #333;
+    }
+    #nav-links{
+        display: none;
+        margin-top: 64px;
+        top: 0;
+        width: 100%;
+        background-color: rgba(34, 34, 34, 0.95);
+        position: absolute;
+    }
+}
+@media screen and (min-width:851px){
+    #nav-links{
+        display: block;
+    }
+    nav ul li{
+        display:inline-block; 
+    }
+    .burger{
+        display: none;
+    }
+}
+
+/*Just reminder breakpoints under, ignore them*/
+/*XS Phones*/
+@media screen and (max-width:599px) {
+
+}
+/*SM Tablet Portrait*/
+@media screen and (min-width:600px){
+
+}
+/*MD Tablet Landscape*/
+@media screen and (min-width:900px){
+
+}
+/*LG Desktop*/
+@media screen and (min-width:1200px){
+
+}
+/*XL Big Desktop*/
+@media screen and(min-width: 1800px){
+
+}
